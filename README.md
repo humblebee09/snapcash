@@ -28,7 +28,7 @@ A modern, **Point of Sale (POS)** web application built with **Next.js**, **Shad
 npm install / npm install --force
 ```
 
-## 🚀 Run
+## Run
 
 ```bash
 npm run dev
