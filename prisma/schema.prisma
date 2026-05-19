@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  username  String   @unique
+  password  String
+  role      String   @default("karyawan")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  icon      String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id           String          @id @default(cuid())
+  name         String
+  price        Int
+  category     String
+  stock        Int             @default(0)
+  image        String          @default("")
+  taxEnabled   Boolean         @default(true)
+  trackStock   Boolean         @default(true)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  orderItems   OrderItem[]
+  options      ProductOption[]
+}
+
+model Table {
+  id        String    @id @default(cuid())
+  number    Int       @unique
+  capacity  Int
+  status    String    @default("available")
+  area      String    @default("indoor")
+  customer  String?
+  startTime DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  orders    Order[]
+}
+
+model Customer {
+  id              String   @id @default(cuid())
+  name            String
+  phone           String   @default("")
+  email           String   @default("")
+  address         String   @default("")
+  totalSpent      Int      @default(0)
+  membershipLevel String   @default("reguler")
+  lastVisit       DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  orders          Order[]
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  orderType     String      @default("takeaway")
+  status        String      @default("open")
+  subtotal      Int         @default(0)
+  discount      Int         @default(0)
+  tax           Int         @default(0)
+  total         Int         @default(0)
+  paymentMethod String?
+  cashAmount    Int         @default(0)
+  change        Int         @default(0)
+  discountCode  String?
+  customerName  String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  tableId       String?
+  table         Table?      @relation(fields: [tableId], references: [id])
+  customerId    String?
+  customer      Customer?   @relation(fields: [customerId], references: [id])
+  orderItems    OrderItem[]
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  quantity  Int
+  price     Int
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model ProductOption {
+  id        String              @id @default(cuid())
+  productId String
+  name      String
+  required  Boolean             @default(false)
+  createdAt DateTime            @default(now())
+  product   Product             @relation(fields: [productId], references: [id], onDelete: Cascade)
+  choices   ProductOptionChoice[]
+}
+
+model ProductOptionChoice {
+  id              String        @id @default(cuid())
+  optionId        String
+  name            String
+  extraPrice      Int           @default(0)
+  option          ProductOption @relation(fields: [optionId], references: [id], onDelete: Cascade)
+}

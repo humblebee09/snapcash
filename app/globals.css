@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 15%;
+    --primary: 164 46% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 96 62% 49%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 10% 50%;
+    --accent: 36 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 164 46% 33%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 210 15% 8%;
+    --foreground: 210 10% 95%;
+    --card: 210 15% 11%;
+    --card-foreground: 210 10% 95%;
+    --popover: 210 15% 11%;
+    --popover-foreground: 210 10% 95%;
+    --primary: 164 46% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 96 62% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 15% 18%;
+    --muted-foreground: 210 10% 55%;
+    --accent: 36 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 15% 20%;
+    --input: 210 15% 20%;
+    --ring: 164 46% 45%;
+  }
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Dialog background solid white */
+[role="dialog"] {
+  background-color: white !important;
+  color: #1a1a1a !important;
+}
+
+/* Content area background */
+main {
+  background-color: #F8FAFC !important;
+}
+
+/* Sidebar solid color */
+[data-sidebar="sidebar"] {
+  background: #2E5E54 !important;
+}
+
+/* Sidebar menu items */
+[data-sidebar="menu-button"] {
+  color: rgba(255,255,255,0.85) !important;
+  font-weight: 500 !important;
+  border-radius: 8px !important;
+}
+
+[data-sidebar="menu-button"]:hover {
+  background-color: rgba(255,255,255,0.12) !important;
+  color: white !important;
+}
+
+[data-sidebar="menu-button"][data-active="true"] {
+  background-color: rgba(255,255,255,0.18) !important;
+  color: white !important;
+  font-weight: 700 !important;
+  border-left: 3px solid #F5A623 !important;
+}
+
+/* Tab active */
+[role="tab"][data-state="active"] {
+  background-color: #2e7965 !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+/* Switch/Toggle */
+[role="switch"][data-state="checked"] {
+  background-color: #2e7965 !important;
+}
+
+[role="switch"][data-state="unchecked"] {
+  background-color: #d1d5db !important;
+}
+
+[role="switch"] span {
+  background-color: white !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+}
