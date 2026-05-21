@@ -113,3 +113,28 @@ main {
   background-color: white !important;
   box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
 }
+
+/* Mobile sidebar fix */
+[data-sidebar="sidebar"],
+[data-sidebar="sidebar"] > *,
+.sidebar-wrapper,
+[data-state="open"] [data-sidebar="sidebar"] {
+  background: #2E5E54 !important;
+}
+
+/* Sheet/drawer untuk mobile sidebar */
+[role="dialog"] [data-sidebar="sidebar"] {
+  background: #2E5E54 !important;
+  color: white !important;
+}
+
+[data-radix-popper-content-wrapper] {
+  background: transparent !important;
+}
+
+/* Specific untuk mobile drawer */
+.vaul-drawer,
+[data-vaul-drawer],
+[data-vaul-overlay] + div {
+  background: #2E5E54 !important;
+}
