@@ -220,3 +220,40 @@ main {
 [data-sidebar] a {
   color: white !important;
 }
+
+/* ===== MOBILE SIDEBAR FIX ===== */
+/* Sheet/drawer yang muncul di mobile */
+[data-vaul-drawer] [data-sidebar="sidebar"],
+[data-state="open"] [data-sidebar="sidebar"],
+.fixed [data-sidebar="sidebar"],
+[data-sheet-content] {
+  background: #2E5E54 !important;
+}
+
+/* Semua text di dalam sidebar mobile */
+[data-sidebar="menu-button"] span,
+[data-sidebar="menu-button"] svg,
+[data-sidebar="menu-button"] * {
+  color: white !important;
+  fill: white !important;
+}
+
+/* Sheet overlay content */
+[data-radix-dialog-content] [data-sidebar="sidebar"] {
+  background: #2E5E54 !important;
+}
+
+/* Fix khusus mobile - sidebar dalam sheet */
+.md\:hidden [data-sidebar],
+[class*="sheet"] [data-sidebar="sidebar"],
+[class*="Sheet"] [data-sidebar="sidebar"] {
+  background: #2E5E54 !important;
+}
+
+/* Paksa semua teks sidebar putih */
+[data-sidebar] h1,
+[data-sidebar] p,
+[data-sidebar] span:not([data-sidebar="menu-badge"]),
+[data-sidebar] a {
+  color: white !important;
+}
