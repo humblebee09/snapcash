@@ -48,27 +48,43 @@ export function AppSidebar() {
   return (
     <>
       {/* Sidebar trigger for mobile */}
-      <div className="md:hidden fixed top-4 right-4 z-50">
+      <div className="md:hidden fixed top-3 left-3 z-50">
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon">
+            <Button size="icon" style={{background: "#2E5E54", border: "none", color: "white"}}>
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="p-0">
+          <SheetContent side="left" className="p-0 border-0" style={{background: "#2E5E54", width: "260px"}}>
             <SheetTitle className="sr-only">menu</SheetTitle>
+            {/* Mobile Header */}
+            <div className="flex items-center gap-3 px-4 py-4 border-b border-white/20">
+              <div className="w-9 h-9 rounded-xl flex items-center justify-center font-black text-xl shadow-lg" style={{background: "rgba(255,255,255,0.2)"}}>
+                <span style={{color: "white"}}>$</span>
+              </div>
+              <div>
+                <h1 className="text-lg font-black leading-none">
+                  <span style={{color: "white"}}>Snap</span><span style={{color: "#fff9e6"}}>Cash</span>
+                </h1>
+                <p className="text-xs font-medium" style={{color: "rgba(255,255,255,0.7)"}}>POS System</p>
+              </div>
+            </div>
             <SidebarContentMenu
               isActive={isActive}
               onNavigate={() => setOpen(false)}
             />
+            {/* Mobile UserNav */}
+            <div className="absolute bottom-0 left-0 right-0 border-t border-white/20">
+              <UserNav />
+            </div>
           </SheetContent>
         </Sheet>
       </div>
 
       {/* Sidebar for desktop */}
       <div className="hidden md:block">
-        <Sidebar >
-          <style>{`[data-sidebar="sidebar"] { background: linear-gradient(180deg, #ff9700 0%, #67ca30 50%, #2e7965 100%) !important; }`}</style>
+        <Sidebar style={{background: "#2E5E54"}}>
+          <style>{`[data-sidebar="sidebar"] { background: #2E5E54 !important; }`}</style>
           <SidebarHeader className="border-b border-white/20 px-4 py-3">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-xl flex items-center justify-center font-black text-xl shadow-lg" style={{background: "#2E5E54"}}>
