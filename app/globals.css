@@ -257,3 +257,16 @@ main {
 [data-sidebar] a {
   color: white !important;
 }
+
+/* ===== FIX: mobile sidebar sheet ke-override oleh [role="dialog"] ===== */
+[data-mobile-nav] {
+  background: #2E5E54 !important;
+  color: white !important;
+}
+
+[data-mobile-nav] h1,
+[data-mobile-nav] p,
+[data-mobile-nav] span,
+[data-mobile-nav] a {
+  color: white !important;
+}

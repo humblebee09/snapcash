@@ -55,7 +55,7 @@ export function AppSidebar() {
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="p-0 border-0" style={{background: "#2E5E54", width: "260px"}}>
+          <SheetContent data-mobile-nav side="left" className="p-0 border-0" style={{background: "#2E5E54", width: "260px"}}>
             <SheetTitle className="sr-only">menu</SheetTitle>
             {/* Mobile Header */}
             <div className="flex items-center gap-3 px-4 py-4 border-b border-white/20">
